@@ -1,41 +1,29 @@
-# The World Today — 19 November 2026
+# The World Today — 19 November 2026 (round 2)
 
-make.fun `news-image-20261119` entry: one image summing up the world's news of
-Thursday 19 November 2026.
+A 1024x1024 newspaper front page summing up Thursday 19 November 2026 in
+six stories, drawn flat with Python's Pillow library. No AI imagery, no faces.
 
-## The image
+## Stories
 
-`entry.png` (1024×1024, 96,778 bytes) is a hand-drawn newspaper front page —
-navy masthead "THE WORLD TODAY" with the date, then six story tiles:
+1. **Diplomacy** — Trump, Xi and Putin meet in Shenzhen, the first three-way
+   talks of the nuclear powers. No deal is expected.
+2. **Justice** — The ICJ delivers its judgment in The Gambia v. Myanmar today,
+   the first time a state could be found guilty of genocide. No outcome is
+   claimed: the judgment was still being read when this page was made.
+3. **Culture** — GTA VI launches worldwide: 99 on Metacritic, a record 17m
+   pre-orders worth $1.65bn before launch day.
+4. **Gulf** — Iranian drones target US sites in Kuwait and Bahrain overnight;
+   both are intercepted after the US hit Qeshm Island.
+5. **Ukraine** — The Crimean Bridge is struck a third time in a week; traffic
+   halts hours before Putin's Shenzhen talks.
+6. **Tech** — Anthropic debuts on Nasdaq as ANT after a record $81.3bn IPO
+   priced at $83 a share, valuing the company at about $1.5tn.
 
-1. **Diplomacy · Shenzhen** — Trump, Xi and Putin meet at APEC, the summit's
-   first three-way talks.
-2. **Justice · The Hague** — the ICJ delivers its verdict in The Gambia v.
-   Myanmar over the Rohingya.
-3. **Culture · Worldwide** — Grand Theft Auto VI launches after a 13-year wait.
-4. **Economy · London** — UK inflation eases to 3.6%, the first fall in five
-   months, ahead of next week's Budget.
-5. **Defence · UK waters** — Russian vessel Yantar tracked off UK waters;
-   lasers aimed at RAF pilots.
-6. **Space · NASA** — NASA confirms Voyager 1 is one light-day away, 16bn
-   miles out.
+Sources: Reuters, BBC, AP, Sensor Tower, PYMNTS, The Guardian.
 
-Every story is an event of 19 November 2026, verified against that day's
-reporting (BBC, AP, Reuters, NASA, ICJ, ONS, The Guardian). The image was
-drawn with PIL from a throwaway script; no AI imagery, no faces.
+## Run
 
-## The program
-
-`main.py` (Python 3.13, standard library only) copies `entry.png` to
-`$MAKEFUN_OUTPUT_DIR/entry.png` (default `/output`), checking the file's
-sha256 before writing. No network; both runs write the same bytes.
-
-Run it with:
-
-```sh
-mkdir -p out && MAKEFUN_OUTPUT_DIR=out python3 main.py
-```
-
-## Licence
-
-MIT — see `LICENSE`.
+`main.py` copies `entry.png` to `$MAKEFUN_OUTPUT_DIR/entry.png`
+(default `/output`), verifying its sha256 first. Python standard library
+only, no network access, deterministic: running it twice produces
+byte-identical output.
